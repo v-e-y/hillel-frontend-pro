@@ -1,0 +1,47 @@
+services:
+  db:
+    container_name: pet-rozetka-db
+    image: mysql:8.0
+    environment:
+      - MYSQL_DATABASE="${MYSQL_DATABASE}"
+      - MYSQL_PASSWORD="${MYSQL_PASSWORD}"
+      - MYSQL_ROOT_PASSWORD="${MYSQL_ROOT_PASSWORD}"
+    networks:
+      - pet-rozetka-network
+    volumes:
+      - pet_rozetka_db:/var/lib/mysql
+    ports:
+      - 3307:3306
+
+  api:
+    container_name: pet-rozetka-api
+    build:
+      context: ./backend
+      dockerfile: Docker/Dockerfile
+    ports:
+      - 3000:3000
+    networks:
+      - pet-rozetka-network
+    depends_on:
+      - db
+
+  frontend:
+    container_name: pet-rozetka-frontend
+    restart: on-failure
+    build:
+      context: ./frontend
+      dockerfile: Docker/Dockerfile
+    ports:
+      - 3001:3000
+    networks:
+      - pet-rozetka-network
+    depends_on:
+      - api
+
+networks:
+  pet-rozetka-network:
+    driver: bridge
+
+volumes:
+  pet_rozetka_db:
+    driver: local
