@@ -1,9 +1,9 @@
-import Base from './components/layout/base/Base';
-import Header from './components/layout/header/Header';
-import Sidebar from './components/layout/sidebar/Sidebar';
-import Main from './components/layout/main/Main';
+import Base from './components/Base/Base';
+import Header from './components/Header/Header';
+import Sidebar from './components/Sidebar/Sidebar';
+import Main from './components/Main/Main';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
         <Base>
