@@ -1,0 +1,101 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <main>
+            <input
+                type="number"
+                name="post_id"
+                id="post_id"
+                min="1"
+                max="100"
+                placeholder="Enter post id"
+            />
+            <article></article>
+        </main>
+        <script>
+            "use strict";
+            /**
+             * INFO:
+             * I have wrap the fetch request in a promise because in task description it was mentioned to use promise
+             * Not an thing witch is implement promises
+             */
+
+            const endpoint = "https://jsonplaceholder.typicode.com/posts";
+
+            document
+                .getElementById("post_id")
+                .addEventListener("change", (e) =>
+                    setTimeout(() => findPost(e.target.value), 1000)
+                );
+
+            const findPost = (postId) => new Promise((res, rej) => {
+                    if (postId < 1 || postId > 100) rej("Post id must be between 1 and 100");
+
+                    res(fetch(`${endpoint}/${postId}`));
+                })
+                .then((response) => response.json())
+                .then((data) => {
+                    const article = document.querySelector("article");
+                    remChild(article);
+                    const title = document.createElement("h1");
+                    title.textContent = data.title;
+                    article.appendChild(title);
+                    const body = document.createElement("p");
+                    body.textContent = data.body;
+                    article.appendChild(body);
+
+                    return postId;
+                })
+                .then((postId) => {
+                    const button = document.createElement("button");
+                    button.textContent = "Get comments";
+                    button.setAttribute("data-post-id", postId);
+                    document.querySelector("article").appendChild(button);
+                    button.addEventListener("click", (e) =>
+                        loadComments(e.target.getAttribute("data-post-id"))
+                    );
+                })
+                .catch((error) => {
+                    const article = document.querySelector("article");
+                    remChild(article);
+                    article.textContent = "Post not found";
+                    console.log("error:", error);
+                });
+
+
+            const loadComments = (postId) => new Promise((res, rej) => {
+                    if (!postId || postId < 1 || postId > 100 || !postId) rej("Unable to load comments for this post");
+
+                    res(fetch(`${endpoint}/${postId}/comments`));
+                })
+                .then((response) => response.json())
+                .then((data) => {
+                    const article = document.querySelector("article");
+                    data.forEach((comment) => {
+                        const name = document.createElement("h2");
+                        name.textContent = comment.name;
+                        article.appendChild(name);
+                        const email = document.createElement("p");
+                        email.textContent = comment.email;
+                        article.appendChild(email);
+                        const body = document.createElement("p");
+                        body.textContent = comment.body;
+                        article.appendChild(body);
+                    });
+                })
+                .catch((error) => {
+                    console.log("error:", error);
+                });
+
+            const remChild = (element) => {
+                for (let i = element.children.length - 1; i >= 0; i--) {
+                    element.removeChild(element.children[i]);
+                }
+            };
+        </script>
+    </body>
+</html>

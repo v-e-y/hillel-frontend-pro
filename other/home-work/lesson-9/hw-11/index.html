@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Work #11</title>
+</head>
+<body>
+    <main>
+        <article>
+            <h1>Home Work #11</h1>
+            <form>
+                <fieldset>
+                    <legend>
+                        <h2>GHost div form</h2>
+                    </legend>
+                    <input type="text" name="ghost_hoster" id="ghost_hoster"/>
+                </fieldset>
+            </form>
+        </article>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const ghostHoster = document.getElementById('ghost_hoster');
+            
+            ghostHoster.addEventListener('focus', () => {
+                const ghostDiv = document.createElement('div');                
+                ghostHoster.insertAdjacentElement('afterend', ghostDiv);
+            });
+
+            ghostHoster.addEventListener('blur', () => {
+                if (ghostHoster.nextElementSibling.tagName === 'DIV') {
+                    ghostHoster.nextElementSibling.remove();
+                    return;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

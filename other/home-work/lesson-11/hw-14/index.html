@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roga i Kopita: Product Page V1</title>
+</head>
+<body>
+    <main>
+        <article data-product-id="1">
+            <section>
+                <img src="/img/products/1.jpg" alt="Product page v1">
+            </section>
+            <section>
+                <h1>Product page v1</h1>
+                <div>
+                    <form name="product-form">
+                        <fieldset>
+                            <div data-product-price="100500">
+                                100500
+                            </div>
+                            <div>
+                                <label for="product-quantity">Qnt:</label>
+                                <input 
+                                    type="number" 
+                                    id="quantity" 
+                                    name="quantity" 
+                                    value="1" 
+                                    min="1" 
+                                    max="100"
+                                >
+                            <div>
+                                <button type="submit">
+                                    Add to cart
+                                </button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </section>
+        </article>
+    </main>
+    <script src="./lib/cities.js"></script>
+    <script src="./lib/np-store-houses.js"></script>
+    <script src="./lib/payment-types.js"></script>
+    <script src="./servicess/helpers.js"></script>
+    <script src="./servicess/validation.js"></script>
+    <script src="./app.js"></script>
+</body>
+</html>

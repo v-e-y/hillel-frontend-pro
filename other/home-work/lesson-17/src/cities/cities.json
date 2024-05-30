@@ -1,0 +1,13 @@
+{
+    "cities": [
+        {
+            "name": "New York"
+        },
+        {
+            "name": "Dnipro"
+        },
+        {
+            "name": "Kyiv"
+        }
+    ]
+}

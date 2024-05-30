@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&libraries=marker&v=beta&solution_channel=GMP_CCS_reversegeocoding_v2" defer></script>
+    <script src="./profile.js" defer></script>
+</head>
+<body>
+    <!-- onclick="window.location.href = './login.html';" -->
+    <button 
+        type="button"
+        onclick="history.back()"
+    >
+        Back to Login
+    </button>
+    <br>
+    <hr>
+    <br>
+    <gmp-map center="40.731,-73.997" zoom="8" map-id="DEMO_MAP_ID">
+        <div id="floating-panel" slot="control-block-start-inline-center">
+          <input id="latlng" type="text" value="40.714224,-73.961452"/>
+          <input id="submit" type="button" value="Reverse Geocode"/>
+        </div>
+        <gmp-advanced-marker></gmp-advanced-marker>
+      </gmp-map>
+</body>
+</html>

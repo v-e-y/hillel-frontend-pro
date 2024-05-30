@@ -1,0 +1,14 @@
+{
+  "name": "lesson-17",
+  "version": "1.0.0",
+  "description": "## Task",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx json-server src/cities/cities.json --port 3001"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^1.0.0-alpha.23"
+  }
+}

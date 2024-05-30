@@ -1,0 +1,107 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My own img slider</title>
+</head>
+<body>
+    <main>
+        <section id="my_own_slider">
+            <button type="button" style="display: none;">
+                Prev
+            </button>
+            <section>
+                <img src="img/1.jpg" alt="1">
+                <img src="img/2.jpg" alt="2" style="display: none;">
+                <img src="img/3.jpg" alt="3" style="display: none;">
+                <img src="img/4.jpg" alt="4" style="display: none;">
+            </section>
+            <button type="button">
+                Next
+            </button>
+        </section>
+        <hr>
+        <section id="my_own_slider_next_gen">
+            <button type="button" style="display: none;">
+                Prev
+            </button>
+            <section>
+            </section>
+            <button type="button">
+                Next
+            </button>
+        </section>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+                const myOwnSlider = document.getElementById('my_own_slider');
+                const imgsSection = myOwnSlider.querySelector('section');
+                const images = imgsSection.querySelectorAll('img');
+                const prevButton = myOwnSlider.querySelector('button:first-of-type');
+                const nextButton = myOwnSlider.querySelector('button:last-of-type');
+                let currentImage = 0;
+
+                images[currentImage].style.display = 'block';
+
+                prevButton.addEventListener('click', () => {
+                    images[currentImage].style.display = 'none';
+                    currentImage = currentImage === 0 ? images.length - 1 : currentImage - 1;
+                    images[currentImage].style.display = 'block';
+                });
+
+                nextButton.addEventListener('click', () => {
+                    images[currentImage].style.display = 'none';
+                    if (currentImage !== 1) {
+                        prevButton.style.display = 'block';
+                    }
+                    if (currentImage === 1) {
+                        prevButton.style.display = 'none';
+                    }
+                    currentImage = currentImage === images.length - 1 ? 0 : currentImage + 1;
+                    images[currentImage].style.display = 'block';
+                });
+
+                /**
+                 * Alternative view to the slider
+                 */
+
+                const myOwnSliderNextGen = document.getElementById('my_own_slider_next_gen');
+                const nextGenImgsSection = myOwnSliderNextGen.querySelector('section');
+                const prevButtonNextGen = myOwnSliderNextGen.querySelector('button:first-of-type');
+                const nextButtonNextGen = myOwnSliderNextGen.querySelector('button:last-of-type');
+                const nextGenSliderImages = [
+                    'img/1.jpg',
+                    'img/2.jpg',
+                    'img/3.jpg',
+                    'img/4.jpg'
+                ];
+                let currentImageNextGen = 0;
+
+                let image = new Image();
+                image.src = nextGenSliderImages[currentImageNextGen];
+
+                nextGenImgsSection.appendChild(image);
+
+                prevButtonNextGen.addEventListener('click', () => {
+                    nextGenImgsSection.removeChild(nextGenImgsSection.firstElementChild);
+                    currentImageNextGen = currentImageNextGen === 0 ? nextGenSliderImages.length - 1 : currentImageNextGen - 1;
+                    image.src = nextGenSliderImages[currentImageNextGen];
+                    nextGenImgsSection.appendChild(image);
+                });
+
+                nextButtonNextGen.addEventListener('click', () => {
+                    nextGenImgsSection.removeChild(nextGenImgsSection.firstElementChild);
+                    currentImageNextGen = currentImageNextGen === nextGenSliderImages.length - 1 ? 0 : currentImageNextGen + 1;
+                    image.src = nextGenSliderImages[currentImageNextGen];
+                    nextGenImgsSection.appendChild(image);
+                    if (currentImageNextGen !== 0) {
+                        prevButtonNextGen.style.display = 'block';
+                    }
+                    if (currentImageNextGen === 0) {
+                        prevButtonNextGen.style.display = 'none';
+                    }
+                });
+        });
+    </script>
+</body>
+</html>
