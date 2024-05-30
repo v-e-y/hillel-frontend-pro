@@ -15,11 +15,13 @@ services:
 
   api:
     container_name: pet-rozetka-api
+    env_file:
+      - .env
     build:
       context: ./backend
       dockerfile: Docker/Dockerfile
     ports:
-      - 3000:3000
+      - "${API_PORT}:${API_PORT}"
     networks:
       - pet-rozetka-network
     depends_on:
