@@ -33,6 +33,8 @@ services:
     build:
       context: ./frontend
       dockerfile: Docker/Dockerfile
+    volumes:
+      - ./frontend:/usr/src/app
     ports:
       - "${FRONTEND_PORT}:${FRONTEND_PORT}"
     networks:
