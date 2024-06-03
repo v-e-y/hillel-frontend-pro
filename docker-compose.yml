@@ -34,7 +34,7 @@ services:
       context: ./frontend
       dockerfile: Docker/Dockerfile
     ports:
-      - 3001:3000
+      - "${FRONTEND_PORT}:${FRONTEND_PORT}"
     networks:
       - pet-rozetka-network
     depends_on:
