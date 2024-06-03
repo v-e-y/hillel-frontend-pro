@@ -26,7 +26,8 @@ const Login = () => {
                             <div className='mb-5'>
                                 <Input 
                                     id='userName' 
-                                    type='text' placeholder="User Name" 
+                                    type='text' 
+                                    placeholder="User Name" 
                                     required  
                                     className="bg-light form-control-lg border-0 rounded-0 py-3" 
                                 />
