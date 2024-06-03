@@ -4,9 +4,9 @@ import './Card.css';
  * Cmp Card
  * @module Card
  */
-const Card = ({ children }) => {
+const Card = ({ className, children }) => {
     return (
-        <div className="card card-body">
+        <div className={`card card-body ${className}`}>
             {children}
         </div>
     );

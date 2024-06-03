@@ -1,5 +1,6 @@
 /* Login.css */
 
-.login {
-    /* TODO: impl */
+input::placeholder {
+    color: green !important;
+    font-size: medium !important;
 }
