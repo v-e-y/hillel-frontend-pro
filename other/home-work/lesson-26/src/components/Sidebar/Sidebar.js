@@ -1,5 +1,4 @@
-import React from 'react';
-import Link from '../../common/link/Link';
+import Link from '../../Link/Link';
 
 /**
  * Sidebar component

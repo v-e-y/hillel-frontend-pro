@@ -4,9 +4,6 @@
  * @param {string} text - Text to display
  * @param {string} title - Title attribute
  */
-
-import React from 'react';
-
 const Link = ({ to, text, title = '' }) => (
     <a 
         href={to} 
