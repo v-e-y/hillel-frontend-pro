@@ -41,7 +41,13 @@ const Login = () => {
                                     className="bg-light form-control-lg border-0 rounded-0 py-3"
                                 />
                             </div>
-                            <Button type='submit' text='Login' size='lg' color='success' className="w-100 rounded-0" />
+                            <Button 
+                                type='submit' 
+                                text='Login' 
+                                size='lg' 
+                                color='success' 
+                                className="w-100 rounded-0" 
+                            />
                         </form>
                     </Card>
                 </div>
