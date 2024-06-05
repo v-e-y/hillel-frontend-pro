@@ -9,6 +9,7 @@
  */
 
 const Button = ({ type, text, size, color, outline, className }) => {
+    type = type || 'button';
     size = size || 'md';
     color = color || 'primary';
 
