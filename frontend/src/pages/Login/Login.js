@@ -3,6 +3,8 @@ import Card from './components/Card/Card';
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
 import LogoBase from '../../components/LogoBase/LogoBase';
+import { IoIosEye } from "react-icons/io";
+
 
 /**
  * Cmp Login
@@ -32,7 +34,7 @@ const Login = () => {
                                     className="bg-light form-control-lg border-0 rounded-0 py-3" 
                                 />
                             </div>
-                            <div className='mb-5'>
+                            <div className='mb-5 position-relative'>
                                 <Input 
                                     id='password' 
                                     type='password' 
@@ -40,6 +42,12 @@ const Login = () => {
                                     required 
                                     className="bg-light form-control-lg border-0 rounded-0 py-3"
                                 />
+                                <div
+                                    type='button'
+                                    className='pe-2 position-absolute end-0 top-50 translate-middle-y cursor-pointer'
+                                >
+                                    <IoIosEye className='fs-3 text-success' />
+                                </div>
                             </div>
                             <Button 
                                 type='submit' 
