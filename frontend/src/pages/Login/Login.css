@@ -1,0 +1,6 @@
+/* Login.css */
+
+input::placeholder {
+    color: green !important;
+    font-size: medium !important;
+}
