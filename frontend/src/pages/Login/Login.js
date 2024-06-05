@@ -1,8 +1,8 @@
 import './Login.css';
-import logo from '../../../../assets/images/logo/logo-base.svg';
-import Card from '../Card/Card';
-import Input from '../../../../components/Input/Input';
-import Button from '../../../../components/Button/Button';
+import logo from '../../assets/images/logo/logo-base.svg';
+import Card from './components/Card/Card';
+import Input from '../../components/Input/Input';
+import Button from '../../components/Button/Button';
 
 /**
  * Cmp Login
