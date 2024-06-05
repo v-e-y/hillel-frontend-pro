@@ -1,4 +1,4 @@
-import LogoBase from "../LogoBase/LogoBase";
+import LogoWhite from "../LogoWhite/LogoWhite";
 
 /**
  * Navbar
@@ -8,8 +8,8 @@ const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-success">
             <div className="container-fluid">
-                <a class="navbar-brand" href="/#">
-                    <LogoBase />
+                <a className="navbar-brand" href="/#">
+                    <LogoWhite />
                 </a>
             </div>
         </nav>
