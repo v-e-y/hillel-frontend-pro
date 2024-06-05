@@ -3,12 +3,13 @@
  * @module Button
  * @prop {string} type
  * @prop {string} text
+ * @prop {?React.JSX.Element} icon
  * @prop {string} size
  * @prop {string} color
  * @prop {boolean} outline
  */
 
-const Button = ({ type, text, size, color, outline, className }) => {
+const Button = ({ type, text, icon, size, color, outline, className }) => {
     type = type || 'button';
     size = size || 'md';
     color = color || 'primary';
@@ -16,8 +17,15 @@ const Button = ({ type, text, size, color, outline, className }) => {
     return (
         <button
             type={type}
-            className={`btn btn-${size} btn-${color} ${outline ? `btn-outline-${color}` : ''} ${className}`}
+            className={`
+                btn btn-${size} 
+                btn-${color} 
+                ${outline ? `btn-outline-${color}` : ''} 
+                ${className}
+                ${icon ? 'd-inline-flex align-items-center' : ''}
+            `}
         >
+            {icon}
             {text}
         </button>
     )
