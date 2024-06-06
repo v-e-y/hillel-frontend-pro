@@ -2,8 +2,10 @@ import './Login.css';
 import Card from './components/Card/Card';
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
-import LogoBase from '../../components/LogoBase/LogoBase';
+import Logo from '../../components/Logo/Logo';
 import { IoIosEye } from "react-icons/io";
+import { FaRegEyeSlash } from "react-icons/fa";
+import React from 'react';
 
 
 /**
@@ -11,7 +13,10 @@ import { IoIosEye } from "react-icons/io";
  * @module Login
  */
 const Login = () => {
-    
+    const [showPassword, setShowPassword] = React.useState(false);
+
+    const handleClickShowPassword = () => setShowPassword((show) => !show);
+
     const handleLogin = async (e) => {
         // TODO: impl
     };
@@ -22,7 +27,7 @@ const Login = () => {
                 <div className='col-12 col-sm-8 col-md-6 col-lg-4 mx-auto'>
                     <Card className="p-5">
                         <div className='text-center mb-5'>
-                            <LogoBase />
+                            <Logo />
                         </div>
                         <form onSubmit={handleLogin} className='pb-5'>
                             <div className='mb-5'>
@@ -37,7 +42,18 @@ const Login = () => {
                             <div className='mb-5 position-relative'>
                                 <Input 
                                     id='password' 
-                                    type='password' 
+                                    type={showPassword ? 'text' : 'password'}
+                                    icon={
+                                        showPassword 
+                                            ? <FaRegEyeSlash 
+                                                className='fs-3 text-success' 
+                                                onClick={handleClickShowPassword}
+                                            />
+                                            : <IoIosEye 
+                                                className='fs-3 text-success' 
+                                                onClick={handleClickShowPassword}
+                                            /> 
+                                        }
                                     placeholder="Password" 
                                     required 
                                     className="bg-light form-control-lg border-0 rounded-0 py-3"

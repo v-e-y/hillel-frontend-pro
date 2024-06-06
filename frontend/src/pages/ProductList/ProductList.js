@@ -9,9 +9,9 @@ import { MaterialReactTable, useMaterialReactTable} from 'material-react-table';
 
 
 /**
- * @module BackendProductList/BackendProductList
+ * @module ProductList/ProductList
  */
-const BackendProductList = () => {
+const ProductList = () => {
     const data = [
         {id: 1, category: "PC", name: "Example Product 1", quantity: 10, price: 100},
         {id: 2, category: "Clothes", name: "Example Product 2", quantity: 20, price: 200},
@@ -108,4 +108,4 @@ const BackendProductList = () => {
     );
 }
 
-export default BackendProductList;
+export default ProductList;

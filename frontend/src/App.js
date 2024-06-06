@@ -1,7 +1,7 @@
 import Base from './components/Base/Base';
 import Main from './components/Main/Main';
 import Navbar from './components/Navbar/Navbar';
-import BackendProductList from './pages/BackendProductList/BackendProductList';
+import ProductList from './pages/ProductList/ProductList';
 
 const App = () => {
     return (
@@ -9,7 +9,7 @@ const App = () => {
             <Base>
                 <Navbar />
                 <Main>
-                    <BackendProductList />
+                    <ProductList />
                 </Main>
             </Base>
         </div>
