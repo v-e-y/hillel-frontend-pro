@@ -1,4 +1,4 @@
-import Logo from "../Logo/Logo";
+import logoWhite from '../../assets/images/logo/logo-white.svg';
 
 /**
  * Navbar
@@ -9,7 +9,7 @@ const Navbar = () => {
         <nav className="navbar navbar-expand-lg navbar-light bg-success">
             <div className="container-fluid">
                 <a className="navbar-brand" href="/#">
-                    <Logo type="white" />
+                    <img src={logoWhite} alt="logo" />
                 </a>
             </div>
         </nav>

@@ -2,7 +2,7 @@ import './Login.css';
 import Card from './components/Card/Card';
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
-import Logo from '../../components/Logo/Logo';
+import logoGreen from '../../assets/images/logo/logo-green.svg';
 import { IoIosEye } from "react-icons/io";
 import { FaRegEyeSlash } from "react-icons/fa";
 import React from 'react';
@@ -27,7 +27,7 @@ const Login = () => {
                 <div className='col-12 col-sm-8 col-md-6 col-lg-4 mx-auto'>
                     <Card className="p-5">
                         <div className='text-center mb-5'>
-                            <Logo />
+                            <img src={logoGreen} alt="logo" className='w-75' />
                         </div>
                         <form onSubmit={handleLogin} className='pb-5'>
                             <div className='mb-5'>
