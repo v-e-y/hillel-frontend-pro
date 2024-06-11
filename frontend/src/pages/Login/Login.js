@@ -1,19 +1,18 @@
 import './Login.css';
+import { useState } from 'react';
 import Card from './components/Card/Card';
+import { IoIosEye } from "react-icons/io";
+import { FaRegEyeSlash } from "react-icons/fa";
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
 import logoGreen from '../../assets/images/logo/logo-green.svg';
-import { IoIosEye } from "react-icons/io";
-import { FaRegEyeSlash } from "react-icons/fa";
-import React from 'react';
-
 
 /**
  * Cmp Login
  * @module Login
  */
 const Login = () => {
-    const [showPassword, setShowPassword] = React.useState(false);
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -58,12 +57,6 @@ const Login = () => {
                                     required 
                                     className="bg-light form-control-lg border-0 rounded-0 py-3"
                                 />
-                                <div
-                                    type='button'
-                                    className='pe-2 position-absolute end-0 top-50 translate-middle-y cursor-pointer'
-                                >
-                                    <IoIosEye className='fs-3 text-success' />
-                                </div>
                             </div>
                             <Button 
                                 type='submit' 
